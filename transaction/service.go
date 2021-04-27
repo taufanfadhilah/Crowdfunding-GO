@@ -4,7 +4,6 @@ import (
 	"bwastartup-be/campaign"
 	"bwastartup-be/payment"
 	"errors"
-	"fmt"
 	"strconv"
 )
 
@@ -84,7 +83,6 @@ func (s *service) CreateTransaction(input CreateTransactionInput) (Transaction, 
 func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 	transaction_id, _ := strconv.Atoi(input.OrderID)
 	transaction, err := s.repository.GetByID(transaction_id)
-	fmt.Println(transaction)
 	if err != nil {
 		return err
 	}
