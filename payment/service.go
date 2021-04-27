@@ -38,7 +38,7 @@ func (s *service) GetPaymentURL(transaction Transaction, user user.User) (string
 			Email: user.Email,
 		},
 		TransactionDetails: midtrans.TransactionDetails{
-			OrderID:  "crowdfunding-" + strconv.Itoa(transaction.ID),
+			OrderID:  strconv.Itoa(transaction.ID),
 			GrossAmt: int64(transaction.Amount),
 		},
 	}
